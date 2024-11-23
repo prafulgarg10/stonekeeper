@@ -1,0 +1,9 @@
+<div class="left-menu-main">
+    <div class="left-menu-list-items">
+        @for(item of listItems; track item.id){
+            <div class="left-menu-list-item" [ngClass]="{'active': item.isActive}" (click)="activeMenuItemHandler(item.id)">
+                <span>{{item.name}}</span>
+            </div>
+        }
+    </div>
+</div>

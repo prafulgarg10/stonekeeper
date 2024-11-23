@@ -1,0 +1,13 @@
+<div class="category-card">
+    <div class="content">
+        <div class="card" *ngFor="let category of categoriesList">
+            <div class="category-title">
+                {{category.Name}}
+            </div>
+            <div class="row-items">
+                <span><b>Purity:</b>  {{category.Purity}}%</span>
+                <span><b>Description:</b>  {{category.Description}}</span>
+            </div>
+        </div>
+    </div>
+</div>

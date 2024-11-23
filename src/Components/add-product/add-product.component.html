@@ -1,0 +1,31 @@
+<div class="add-product">
+    <form [formGroup]="addProduct" (ngSubmit)="saveProduct()" class="form">
+        <div class="item">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="Name">
+        </div>
+        <div class="item">
+            <label for="weight">Weight</label>
+             <input id="weight" type="number" formControlName="Weight" required>
+        </div>
+        <div class="item">
+            <label for="quantity">Quantity</label>
+            <input id="quantity" type="number" formControlName="Quantity" required>
+        </div>
+        <div class="item">
+            <label for="category">Category</label>
+            <select id="category" formControlName="Category">
+                <option *ngFor="let category of categories;" [value]="category.Id">{{category.Name}}, Purity: {{category.Purity}}%</option>
+            </select>
+        </div>
+        <div class="item">
+            <label for="material">Material</label>
+            <select id="material" formControlName="Material">
+                <option *ngFor="let material of materials;" [value]="material.Id">{{material.Name}}</option>
+            </select>
+        </div>
+        <div class="item-btn">
+            <button type="submit" [disabled]="!addProduct.valid" mat-flat-button color="primary">Add</button>
+        </div>
+    </form>
+</div>

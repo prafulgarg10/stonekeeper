@@ -1,0 +1,33 @@
+.add-category{
+    box-shadow: 0px 0px 10px lightgray;
+    padding: 20px 20px;
+    margin-top: 20px;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.item label{
+    min-width: 120px;
+    text-align: left;
+}
+
+.item input{
+    width: calc(100% - 120px);
+}
+
+.item-btn{
+    width: 100%;
+}

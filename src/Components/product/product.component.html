@@ -1,0 +1,20 @@
+<div class="product-card">
+    <div class="content">
+        <div class="card" *ngFor="let product of productsList">
+            <div class="product-image">
+                <img src="../../assets/Ring.png">
+            </div>
+            <div class="product-title">
+                {{product.Name}}
+            </div>
+            <div class="row-items">
+                <span><b>Weight:</b> {{product.Weight}}gm</span>
+                <span><b>Quantity:</b> {{product.Quantity}}</span>
+            </div>
+            <div class="row-items">
+                <span><b>Category:</b> {{product.Category_Name}}</span>
+                <span><b>Material:</b> {{product.Material_Name}}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="add-category">
+    <form [formGroup]="addCategory" (ngSubmit)="saveCategory()" class="form">
+        <div class="item">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="Name" required>
+        </div>
+        <div class="item">
+            <label for="purity">Purity</label>
+             <input id="purity" type="number" formControlName="Purity">
+        </div>
+        <div class="item">
+            <label for="description">Description</label>
+            <input id="description" type="text" formControlName="Description">
+        </div>
+        <div class="item-btn">
+            <button type="submit" [disabled]="!addCategory.valid" mat-flat-button color="primary">Add</button>
+        </div>
+    </form>
+</div>

@@ -2,15 +2,15 @@
     <form [formGroup]="addCategory" (ngSubmit)="saveCategory()" class="form">
         <div class="item">
             <label for="name">Name</label>
-            <input id="name" type="text" formControlName="Name" required>
+            <input id="name" type="text" formControlName="name" required>
         </div>
         <div class="item">
             <label for="purity">Purity</label>
-             <input id="purity" type="number" formControlName="Purity">
+             <input id="purity" type="number" formControlName="purity">
         </div>
         <div class="item">
             <label for="description">Description</label>
-            <input id="description" type="text" formControlName="Description">
+            <input id="description" type="text" formControlName="description">
         </div>
         <div class="item-btn">
             <button type="submit" [disabled]="!addCategory.valid" mat-flat-button color="primary">Add</button>

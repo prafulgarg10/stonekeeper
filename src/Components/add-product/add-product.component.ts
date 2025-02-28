@@ -22,11 +22,11 @@ export class AddProductComponent implements OnChanges{
   private apiUrl = environment.apiUrl;
   product: Product = new Product();
   addProduct = new FormGroup({
-    Name: new FormControl(''),
-    Weight: new FormControl(null),
-    Category: new FormControl(0),
-    Quantity: new FormControl(null),
-    Material: new FormControl(0)
+    name: new FormControl(''),
+    weight: new FormControl(null),
+    category: new FormControl(0),
+    quantity: new FormControl(null),
+    material: new FormControl(0)
   });
 
   constructor(private dialog: MatDialog, private http: HttpClient, private appService: AppService){}
@@ -47,10 +47,10 @@ export class AddProductComponent implements OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['categories'] && this.categories.length>0){
-      this.addProduct.get('Category')?.setValue(this.categories[0].Id);
+      this.addProduct.get('category')?.setValue(this.categories[0].id);
     }
     if(changes['materials'] && this.materials.length>0){
-      this.addProduct.get('Material')?.setValue(this.materials[0].Id);
+      this.addProduct.get('material')?.setValue(this.materials[0].id);
     }
   }
 

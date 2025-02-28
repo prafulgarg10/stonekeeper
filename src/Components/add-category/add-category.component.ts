@@ -19,9 +19,9 @@ export class AddCategoryComponent {
   private apiUrl = environment.apiUrl;
   category: Category = new Category();
   addCategory = new FormGroup({
-    Name: new FormControl(''),
-    Purity: new FormControl(null),
-    Description: new FormControl(null)
+    name: new FormControl(''),
+    purity: new FormControl(null),
+    description: new FormControl(null)
   });
 
   constructor(private dialog: MatDialog, private appService: AppService, private http: HttpClient){}

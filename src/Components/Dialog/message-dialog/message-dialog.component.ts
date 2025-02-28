@@ -17,7 +17,7 @@ export class MessageDialogComponent implements OnInit {
 
   ngOnInit(){
     this.boxTitle = this.data.boxTitle;
-    this.message = this.data.message;
+    this.message = this.data.message; 
   }
 
   closeDialog(){

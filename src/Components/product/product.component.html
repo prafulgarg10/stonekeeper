@@ -5,16 +5,30 @@
                 <img src="../../assets/Ring.png">
             </div>
             <div class="product-title">
-                {{product.Name}}
+                {{product.name}}
             </div>
             <div class="row-items">
-                <span><b>Weight:</b> {{product.Weight}}gm</span>
-                <span><b>Quantity:</b> {{product.Quantity}}</span>
+                <span><b>Weight:</b> {{product.weight}} gm</span>
+                <span><b>Quantity:</b> {{product.quantity}}</span>
             </div>
             <div class="row-items">
-                <span><b>Category:</b> {{product.Category_Name}}</span>
-                <span><b>Material:</b> {{product.Material_Name}}</span>
+                <span><b>Category:</b> {{product.categoryName}}</span>
+                <span><b>Material:</b> {{product.materialName}}</span>
             </div>
+            <div class="row-items btns">
+                <div class="btn" matTooltip="Edit">
+                    <mat-icon fontIcon="edit" (click)="openDialog(product)"></mat-icon>   
+                </div>
+                <div class="btn" matTooltip="Delete">
+                    <mat-icon fontIcon="delete" (click)="openDialog(product)" style="color: rgb(237, 116, 116);"></mat-icon>    
+                </div>
+                <div class="btn" matTooltip="Add to Cart">
+                    <mat-icon fontIcon="shopping_cart" (click)="openDialog(product)" style="color: green;"></mat-icon>    
+                </div>
+            </div>
+            <!-- <div class="edit-btn">
+                <mat-icon fontIcon="edit" (click)="openDialog(product)"></mat-icon>
+            </div> -->
         </div>
     </div>
 </div>

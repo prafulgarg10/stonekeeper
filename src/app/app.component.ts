@@ -11,6 +11,7 @@ import { ProductComponent } from '../Components/product/product.component';
 import { AppService } from '../service/app.service';
 import { Subscription } from 'rxjs';
 import { CategoriesComponent } from '../Components/categories/categories.component';
+import { FileUploadComponent } from '../Components/Common/file-upload/file-upload.component';
 
 @Component({
   selector: 'app-root',
@@ -49,6 +50,13 @@ export class AppComponent implements OnInit{
       this.productsSubscription = this.appService.onGetProducts().subscribe({
         next: value => {
           this.products = value;
+          this.products = this.products.map(p => {
+            if(p.productImage!=null){
+              p.productImage.fileType = p.productImage.name.split(".")[1];
+              p.imageSrc = "data:image/" + p.productImage.fileType + ";base64, " + p.productImage.base64;
+            }
+            return p;
+          });
         }
       });
 

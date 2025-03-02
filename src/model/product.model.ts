@@ -1,3 +1,5 @@
+import { FileDTO } from "./list.model";
+
 export class Product{
     id: number = 0;
     name: string = '';
@@ -8,6 +10,8 @@ export class Product{
     picture: string|undefined;
     categoryName: string = '';
     materialName: string = '';
+    productImage: FileDTO | undefined; 
+    imageSrc: string | undefined;
 }
 
 export class Category{

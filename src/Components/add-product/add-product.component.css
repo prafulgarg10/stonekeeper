@@ -35,3 +35,7 @@
 .item-btn{
     width: 100%;
 }
+
+.upload{
+    width: calc(100% - 120px);
+}

@@ -5,14 +5,16 @@ import { Category, Material, Product } from '../../model/product.model';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MessageDialogComponent } from '../Dialog/message-dialog/message-dialog.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AppService } from '../../service/app.service';
+import { FileUploadComponent } from '../Common/file-upload/file-upload.component';
+import { FileDTO } from '../../model/list.model';
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent, HttpClientModule],
+  imports: [ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent, HttpClientModule, FileUploadComponent],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css'
 })
@@ -21,6 +23,7 @@ export class AddProductComponent implements OnChanges{
   @Input() materials: Material[] = [];
   private apiUrl = environment.apiUrl;
   product: Product = new Product();
+  file: FileDTO | undefined;
   addProduct = new FormGroup({
     name: new FormControl(''),
     weight: new FormControl(null),
@@ -33,6 +36,20 @@ export class AddProductComponent implements OnChanges{
 
   saveProduct(){
     this.product = this.addProduct.value as Product;
+    if(this.file){
+      this.product.productImage = this.file;
+    }
+    else{
+      this.product.productImage = undefined;
+    }
+    if(this.product.category==0){
+      this.openDialog('Category cannot be emplty. Please try again later.', 'Warning!');
+      return;
+    }
+    if(this.product.material==0){
+      this.openDialog('Material cannot be emplty. Please try again later.', 'Warning!');
+      return;
+    }
     this.addProductToDB(this.product);
   }
 
@@ -54,8 +71,10 @@ export class AddProductComponent implements OnChanges{
     }
   }
 
-  addProductToDB(category: Product){
-    this.http.post(this.apiUrl + '/add-product', category).subscribe({
+  addProductToDB(product: Product){
+    let postData = Object.assign({}, product as Product);
+    //this.http.post(this.apiUrl + '/add-product', product, {headers: new HttpHeaders().set('Content-Type', 'multipart/form-data')}).subscribe({
+    this.http.post(this.apiUrl + '/add-product', postData).subscribe({
         next: data => {
             if(data){
               console.log("result", data);
@@ -68,6 +87,10 @@ export class AddProductComponent implements OnChanges{
             this.openDialog('Problem adding product. Please try again later.', 'Failure!');
         }
     })
-}
+  }
+
+  onFileUpload(e:FileDTO){
+    this.file = e;
+  }
 }
 

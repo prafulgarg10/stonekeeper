@@ -1,0 +1,23 @@
+.file-upload{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input::file-selector-button {
+    color: black;
+    padding: 0.3em;
+    border: thin solid grey;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  input::file-selector-button:hover {
+    border: thin solid black;
+  }
+
+  .file-type{
+    font-size: 14px;
+    color: green;
+  }

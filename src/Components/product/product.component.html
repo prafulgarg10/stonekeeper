@@ -2,7 +2,12 @@
     <div class="content">
         <div class="card" *ngFor="let product of productsList">
             <div class="product-image">
-                <img src="../../assets/Ring.png">
+                @if(product.productImage!=null){
+                    <img [src]="product.imageSrc">
+                }
+                @else{
+                    <img src="../../assets/Ring.png">
+                } 
             </div>
             <div class="product-title">
                 {{product.name}}

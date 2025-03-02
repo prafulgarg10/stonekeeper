@@ -24,6 +24,11 @@
                 <option *ngFor="let material of materials;" [value]="material.id">{{material.name}}</option>
             </select>
         </div>
+        <div class="item">
+            <label for="material">Image</label>
+            <app-file-upload (fileUploaded)="onFileUpload($event)" class="upload"></app-file-upload>
+            <!-- <input id="quantity" type="number" formControlName="quantity" required> -->
+        </div>
         <div class="item-btn">
             <button type="submit" [disabled]="!addProduct.valid" mat-flat-button color="primary">Add</button>
         </div>

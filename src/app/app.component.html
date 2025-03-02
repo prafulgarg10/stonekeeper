@@ -7,7 +7,7 @@
     <div class="main-content">
       <div class="main-content-title">
         {{activePage.name}}
-        <app-product *ngIf="activePage.id==2" [productsList]="products"></app-product>
+        <app-product *ngIf="activePage.id==2" [productsList]="products" [categories]="categories" [materials]="materials"></app-product>
         <app-categories *ngIf="activePage.id==3" [categoriesList]="categories"></app-categories>
         <app-add-product *ngIf="activePage.id==4" [materials]="materials" [categories]="categories"></app-add-product>
         <app-add-category *ngIf="activePage.id==5"></app-add-category>

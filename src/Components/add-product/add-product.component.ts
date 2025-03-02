@@ -25,10 +25,10 @@ export class AddProductComponent implements OnChanges{
   product: Product = new Product();
   file: FileDTO | undefined;
   addProduct = new FormGroup({
-    name: new FormControl(''),
-    weight: new FormControl(null),
+    name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    weight: new FormControl(0),
     category: new FormControl(0),
-    quantity: new FormControl(null),
+    quantity: new FormControl(0),
     material: new FormControl(0)
   });
 
@@ -40,7 +40,7 @@ export class AddProductComponent implements OnChanges{
       this.product.productImage = this.file;
     }
     else{
-      this.product.productImage = undefined;
+      this.product.productImage = null;
     }
     if(this.product.category==0){
       this.openDialog('Category cannot be emplty. Please try again later.', 'Warning!');

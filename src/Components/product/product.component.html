@@ -22,13 +22,13 @@
             </div>
             <div class="row-items btns">
                 <div class="btn" matTooltip="Edit">
-                    <mat-icon fontIcon="edit" (click)="openDialog(product)"></mat-icon>   
+                    <mat-icon fontIcon="edit" (click)="openEditDialog(product)"></mat-icon>   
                 </div>
                 <div class="btn" matTooltip="Delete">
-                    <mat-icon fontIcon="delete" (click)="openDialog(product)" style="color: rgb(237, 116, 116);"></mat-icon>    
+                    <mat-icon fontIcon="delete" (click)="openDeleteDialog(product)" style="color: rgb(237, 116, 116);"></mat-icon>    
                 </div>
                 <div class="btn" matTooltip="Add to Cart">
-                    <mat-icon fontIcon="shopping_cart" (click)="openDialog(product)" style="color: green;"></mat-icon>    
+                    <mat-icon fontIcon="shopping_cart" (click)="openAddToCartDialog(product)" style="color: green;"></mat-icon>    
                 </div>
             </div>
             <!-- <div class="edit-btn">

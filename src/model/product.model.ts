@@ -3,15 +3,14 @@ import { FileDTO } from "./list.model";
 export class Product{
     id: number = 0;
     name: string = '';
-    weight: number|undefined;
-    quantity: number|undefined;
+    weight: number  = 0;
+    quantity: number = 0;
     category: number = 0;
     material: number = 0;
-    picture: string|undefined;
     categoryName: string = '';
     materialName: string = '';
-    productImage: FileDTO | undefined; 
-    imageSrc: string | undefined;
+    productImage: FileDTO | null = null; 
+    imageSrc: string = '';
 }
 
 export class Category{

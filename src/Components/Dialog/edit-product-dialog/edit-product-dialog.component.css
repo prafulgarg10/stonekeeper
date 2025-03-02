@@ -29,3 +29,46 @@
     width: 100%;
     font-size: 18px;
 }
+
+
+.edit-product{
+    width: 100%;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.item label{
+    min-width: 120px;
+    text-align: left;
+}
+
+.item input{
+    width: calc(100% - 120px);
+}
+
+.item select{
+    width: calc(100% - 120px);
+}
+
+.item-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.upload{
+    width: calc(100% - 120px);
+}

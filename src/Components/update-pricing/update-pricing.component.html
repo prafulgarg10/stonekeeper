@@ -1,0 +1,21 @@
+<div class="update-pricing">
+    <form [formGroup]="updatePricing" (ngSubmit)="addLatestMaterialPriceToDB()" class="form">
+        <div class="item">
+            <label for="material">Material</label>
+            <select id="material" formControlName="materialId" (change)="onMaterialChange()">
+                <option *ngFor="let material of materials;" [value]="material.id">{{material.name}}</option>
+            </select>
+        </div>
+        <div class="item">
+            <label for="price">Price</label>
+            <input id="price" type="number" formControlName="price">
+        </div>
+        <div class="item">
+            <label for="lastUpdated">Last Updated</label>
+            <input id="lastUpdated" type="text" formControlName="lastUpdated" readonly>
+        </div>
+        <div class="item-btn">
+            <button type="submit" [disabled]="!updatePricing.valid" mat-flat-button color="primary">Update</button>
+        </div>
+    </form>
+</div>

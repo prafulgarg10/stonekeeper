@@ -16,13 +16,20 @@ export class Product{
 export class Category{
     id: number = 0;
     name: string = '';
-    purity: number|undefined;
+    purity: number = 100;
     active: boolean = true;
-    description: string|undefined;
+    description: string = '';
 }
 
 export class Material{
     id: number = 0;
     name: string = '';
     pricePer10Gm: number = 0;
+}
+
+export class Price{
+    materialName: string = '';
+    materialId: number = 0;
+    price: number = 0;
+    lastUpdated: Date | string = '';
 }

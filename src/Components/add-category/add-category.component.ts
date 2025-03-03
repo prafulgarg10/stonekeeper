@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Category } from '../../model/product.model';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MessageDialogComponent } from '../Dialog/message-dialog/message-dialog.component';
@@ -19,9 +19,9 @@ export class AddCategoryComponent {
   private apiUrl = environment.apiUrl;
   category: Category = new Category();
   addCategory = new FormGroup({
-    name: new FormControl(''),
-    purity: new FormControl(null),
-    description: new FormControl(null)
+    name: new FormControl('', [Validators.required, Validators.minLength(3)] ),
+    purity: new FormControl(100),
+    description: new FormControl('')
   });
 
   constructor(private dialog: MatDialog, private appService: AppService, private http: HttpClient){}

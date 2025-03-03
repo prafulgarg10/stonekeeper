@@ -6,19 +6,20 @@ import { MenuItems } from '../model/list.model';
 import { AddProductComponent } from '../Components/add-product/add-product.component';
 import { AddCategoryComponent } from '../Components/add-category/add-category.component';
 import { CommonModule } from '@angular/common';
-import { Category, Material, Product } from '../model/product.model';
+import { Category, Material, Price, Product } from '../model/product.model';
 import { ProductComponent } from '../Components/product/product.component';
 import { AppService } from '../service/app.service';
 import { Subscription } from 'rxjs';
 import { CategoriesComponent } from '../Components/categories/categories.component';
 import { FileUploadComponent } from '../Components/Common/file-upload/file-upload.component';
+import { UpdatePricingComponent } from '../Components/update-pricing/update-pricing.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
              RouterOutlet,HeaderComponent, LeftMenuComponent, AddProductComponent, AddCategoryComponent, CommonModule, 
-             ProductComponent, CategoriesComponent
+             ProductComponent, CategoriesComponent, UpdatePricingComponent
             ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -30,9 +31,11 @@ export class AppComponent implements OnInit{
   categoriesSubscription = new Subscription();
   productsSubscription = new Subscription();
   materialsSubscription = new Subscription();
+  latestMaterialsPriceSubscription = new Subscription();
   categories: Category[] = [];
   products: Product[] = [];
   materials: Material[] = [];
+  latestMaterialsPrice: Price[] = [];
 
   constructor(private appService: AppService){}
 
@@ -40,6 +43,7 @@ export class AppComponent implements OnInit{
       this.appService.getCategoriesFromDB();
       this.appService.getProductsFromDB();
       this.appService.getMaterialsFromDB();
+      this.appService.getLatestMaterialsPriceFromDB();
 
       this.categoriesSubscription = this.appService.onGetCategories().subscribe({
         next: value => {
@@ -63,6 +67,12 @@ export class AppComponent implements OnInit{
       this.materialsSubscription = this.appService.onGetMaterials().subscribe({
         next: value => {
           this.materials = value;
+        }
+      });
+
+      this.latestMaterialsPriceSubscription = this.appService.onGetLatestMaterialsPrice().subscribe({
+        next: value => {
+          this.latestMaterialsPrice = value;
         }
       });
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Category, Material, Product } from '../model/product.model';
+import { Category, Material, Price, Product } from '../model/product.model';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -12,6 +12,7 @@ export class AppService {
     private categories = new BehaviorSubject<Category[]>([]);
     private products = new BehaviorSubject<Product[]>([]);
     private materials = new BehaviorSubject<Material[]>([]);
+    private latestMaterialsPrice = new BehaviorSubject<Price[]>([]);
     
     constructor(private http: HttpClient){}
 
@@ -28,6 +29,21 @@ export class AppService {
 
     onGetCategories(){
         return this.categories.asObservable();
+    }
+
+    getLatestMaterialsPriceFromDB(){
+        this.http.get(this.apiUrl + '/latest-price').subscribe({
+            next: data => {
+                this.latestMaterialsPrice.next(data as Price[]);
+            },
+            error: err => { 
+                console.log("Error", err);
+            }
+        })
+    }
+
+    onGetLatestMaterialsPrice(){
+        return this.latestMaterialsPrice.asObservable();
     }
 
     getProductsFromDB(){

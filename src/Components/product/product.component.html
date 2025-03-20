@@ -27,8 +27,8 @@
                 <div class="btn" matTooltip="Delete">
                     <mat-icon fontIcon="delete" (click)="openDeleteDialog(product)" style="color: rgb(237, 116, 116);"></mat-icon>    
                 </div>
-                <div class="btn" matTooltip="Add to Cart">
-                    <mat-icon fontIcon="shopping_cart" (click)="openAddToCartDialog(product)" style="color: green;"></mat-icon>    
+                <div class="btn" [ngStyle]="{'background-color': product.isAddedToCart ? 'lightgray' : 'white'}" [matTooltip]="product.isAddedToCart ? 'Remove from Cart' : 'Add to Cart'">
+                    <mat-icon fontIcon="shopping_cart" (click)="addProductToCart(product)" style="color: green;"></mat-icon>    
                 </div>
             </div>
             <!-- <div class="edit-btn">

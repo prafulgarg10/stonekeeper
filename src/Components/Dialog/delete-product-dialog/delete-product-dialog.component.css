@@ -1,6 +1,6 @@
 .dialog{
-    width: 700px;
-    height: 350px;
+    width: 400px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,4 +28,15 @@
 .body{
     width: 100%;
     font-size: 18px;
+}
+
+.body-content{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.response{
+    display: flex;
+    justify-content: center;
 }

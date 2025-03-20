@@ -5,7 +5,12 @@
              <mat-icon fontIcon="cancel" (click)="closeDialog()"></mat-icon>
         </div>
         <div class="body">
-            
+            <div class="body-content">
+                <span>Are you sure you want to delete the product?</span>
+            <div class="response">
+                <button class="confirm" mat-flat-button color="primary" (click)="deleteProduct()">Confirm</button>
+            </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,18 @@
+<div class="login-main">
+    <div class="login-main-title">Login</div>
+    <div class="login">
+        <form [formGroup]="signup" (ngSubmit)="onLogin()" class="form">
+            <div class="item">
+                <label for="name">User Name</label>
+                <input id="name" type="text" formControlName="Username">
+            </div>
+            <div class="item">
+                <label for="password">Password</label>
+                 <input id="password" type="password" formControlName="Password" required>
+            </div>
+            <div class="item-btn">
+                <button type="submit" [disabled]="!signup.valid" mat-flat-button color="primary">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

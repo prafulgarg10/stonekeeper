@@ -24,16 +24,61 @@
     font-size: 24px;
 }
 
-.profile{
-    width: 60px;
-    height: 60px;
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.circle{
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 2px solid lightgray;
 }
 
-.profile img{
-    width: 60px;
-    height: 60px;
+.circle img{
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+}
+
+.right{
+    display: flex;
+    width: 150px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+}
+
+.user-name{
+    text-align: center;
+}
+
+.user-controls{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 45px;
+}
+
+.count{
+    background-color: green;
+    color: white;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+    margin-top: -40px;
+    margin-left: -10px;
 }

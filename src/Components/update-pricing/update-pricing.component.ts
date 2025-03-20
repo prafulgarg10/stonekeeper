@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Category, Material, Price, Product } from '../../model/product.model';
+import { Material, Price } from '../../model/product.model';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MessageDialogComponent } from '../Dialog/message-dialog/message-dialog.component';
@@ -9,7 +9,6 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 import { environment } from '../../environments/environment';
 import { AppService } from '../../service/app.service';
 import { FileUploadComponent } from '../Common/file-upload/file-upload.component';
-import { FileDTO } from '../../model/list.model';
 
 @Component({
   selector: 'app-update-pricing',
@@ -62,27 +61,33 @@ export class UpdatePricingComponent implements OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['materials'] && this.materials.length>0){
       this.updatePricing.get('materialId')?.setValue(this.materials[0].id);
-
+      this.onMaterialChange();
+    }
+    if(changes['latestMaterialsPrice']){
       this.onMaterialChange();
     }
   }
 
   onMaterialChange(){
     let materialId = this.updatePricing.get('materialId')?.value;
-    let lPrice: Price[] = this.latestMaterialsPrice.filter(p => p.materialId==materialId);
-    this.updatePricing.get('price')?.setValue(lPrice[0].price);
-
-    let formattedDate = new Date(lPrice[0].lastUpdated).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true,
-    });
-
-    this.updatePricing.get('lastUpdated')?.setValue(formattedDate.toString());
+    let filteredLatestPrice = this.latestMaterialsPrice.filter(p => p.materialId==materialId);
+    if(filteredLatestPrice && filteredLatestPrice.length>0){
+      this.updatePricing.get('price')?.setValue(filteredLatestPrice[0].price);
+      let formattedDate = new Date(filteredLatestPrice[0].lastUpdated).toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      });
+      this.updatePricing.get('lastUpdated')?.setValue(formattedDate.toString());
+    }
+    else{
+      this.updatePricing.get('price')?.setValue(0);
+      this.updatePricing.get('lastUpdated')?.setValue("");
+    }
   }
 
 }

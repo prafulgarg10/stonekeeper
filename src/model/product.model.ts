@@ -11,6 +11,7 @@ export class Product{
     materialName: string = '';
     productImage: FileDTO | null = null; 
     imageSrc: string = '';
+    isAddedToCart: boolean = false;
 }
 
 export class Category{

@@ -1,8 +1,32 @@
 <div class="header">
     <div class="header-content">
-        <span class="header-items title">Manoj Kumar Jewellars</span>
-        <div class="header-items profile">
-            <img src="../../assets/Profile-Default.png">
+        <span class="header-items title"><a class="link" routerLink="/">Manoj Kumar Jewellars</a></span>
+        <div class="header-items">
+            <div class="right">
+                <div class="right-item circle" [matTooltip]="user.Username">
+                    <img src="../../assets/Profile-Default.png" [matMenuTriggerFor]="menu">
+                    <mat-menu #menu="matMenu">
+                        <div class="user-name">
+                            {{user.Username}}
+                        </div>
+                        <div class="user-controls">
+                            <button mat-button color="primary" [disabled]="isLoggedIn" (click)="navigateToLogin()">Login</button>
+                            <button mat-button color="primary" [disabled]="isLoggedIn" (click)="navigateToRegister()">Signup</button>
+                        </div>
+                        <div class="user-controls">
+                            <button mat-flat-button color="warn" [disabled]="!isLoggedIn" (click)="onLogoutClick()">Logout</button>
+                        </div>
+                      </mat-menu>
+                </div>
+                <div class="right-item circle">
+                    <a routerLink="/cart" class="link" style="height: 24px">
+                        <mat-icon fontIcon="shopping_cart"></mat-icon>  
+                    </a>
+                </div>
+                <div class="count">
+                    <span class="cart-count">{{productInCartCount}}</span> 
+                </div>
+            </div>
         </div>
     </div>
 </div>

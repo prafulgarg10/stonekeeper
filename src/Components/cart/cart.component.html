@@ -1,1 +1,70 @@
-<p>cart works!</p>
+<div class="cart">
+    <div class="title">
+        Shopping Cart
+    </div>
+    <div class="content">
+        <div class="products">
+            <div class="card" *ngFor="let item of cartProductsFinal">
+                <div class="product-image">
+                    @if(item.product.productImage!=null){
+                        <img [src]="item.product.imageSrc">
+                    }
+                    @else{
+                        <img src="../../assets/Ring.png">
+                    } 
+                </div>
+                <div class="product-details">
+                    <div class="product-details-content">
+                        <div class="product-title">
+                            {{item.product.name}}
+                        </div>
+                        <div class="product-details-item">
+                            <div class="product-item non-editable">
+                                <label for="material">Material:</label>
+                                <span>{{item.product.materialName}}</span>
+                            </div>
+                            <div class="product-item non-editable">
+                                <label for="category">Category:</label>
+                                <span>{{item.product.categoryName}}</span>
+                            </div>
+                            <div class="product-item non-editable">
+                                <label for="purity">Purity:</label>
+                                <span>{{item.purity}}%</span>
+                            </div>
+                            <div class="product-item editable">
+                                <label for="quantity">Quantity:</label>
+                                <input id="quantity" type="number" [value]="item.updatedQuantity" [max]="item.product.quantity" (change)="onQuantityChange($event, item)" required>
+                            </div>
+                            <div class="product-item editable">
+                                <label for="weight">Weight:</label>
+                                <input id="weight" type="number" [value]="item.updatedWeight" [max]="item.product.weight" (change)="onWeightChange($event, item)" required>
+                            </div>
+                            <div class="product-item non-editable">
+                                <label for="amount">Amount:</label>
+                                <span>Rs. {{item.amount}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="remove">
+                    <mat-icon fontIcon="delete" (click)="removeProductFromCart(item)" matTooltip="Remove from Cart" style="color: rgb(237, 116, 116);"></mat-icon> 
+                </div>
+            </div>
+        </div>
+        <div class="total-card">
+            <div class="summary">
+                <div class="detail">
+                    <label for="total-product">Total Products:</label>
+                    <span>{{totalItemCount}}</span>
+                </div>
+                <div class="detail">
+                    <label for="amount">Total Amount: Rs. </label>
+                    <span>{{totalPrice}}</span>
+                </div>
+                <div class="buttons">
+                    <button mat-flat-button color="primary">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

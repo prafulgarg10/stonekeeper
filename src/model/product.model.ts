@@ -14,6 +14,14 @@ export class Product{
     isAddedToCart: boolean = false;
 }
 
+export class ProductInCart{
+    product: Product = new Product();
+    amount: number = 0 ;
+    updatedWeight: number  = 0;
+    updatedQuantity: number = 0;
+    purity: number = 100;
+}
+
 export class Category{
     id: number = 0;
     name: string = '';

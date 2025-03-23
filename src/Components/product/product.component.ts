@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Category, Material, Product } from '../../model/product.model';
+import { Category, Material, Product, ProductInCart } from '../../model/product.model';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -47,13 +47,15 @@ export class ProductComponent {
     addProductToCart(product: Product) {
       product.isAddedToCart = !product.isAddedToCart;
       if(product.isAddedToCart){
+        let updatedProduct = new ProductInCart();
+        updatedProduct.product = product;
         var pdInCart = this.appService.productsInCart.value;
-        pdInCart.push(product);
+        pdInCart.push(updatedProduct);
         this.appService.productsInCart.next(pdInCart);
       }
       else{
         var pdInCart = this.appService.productsInCart.value;
-        pdInCart = pdInCart.filter(p=> p.id!=product.id);
+        pdInCart = pdInCart.filter(p=> p.product.id!=product.id);
         this.appService.productsInCart.next(pdInCart);
       }
     }

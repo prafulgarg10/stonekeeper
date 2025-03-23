@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Category, Material, Price, Product } from '../model/product.model';
+import { Category, Material, Price, Product, ProductInCart } from '../model/product.model';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Login, LoginResponse, Register } from '../model/list.model';
 
@@ -19,7 +19,7 @@ export class AppService {
         'Content-Type': 'application/json'
     });
     public currentHeader = new BehaviorSubject<HttpHeaders>(this.defaultHeader);
-    public productsInCart = new BehaviorSubject<Product[]>([]);
+    public productsInCart = new BehaviorSubject<ProductInCart[]>([]);
    
 
     constructor(private http: HttpClient) {

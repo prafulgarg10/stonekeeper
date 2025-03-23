@@ -85,6 +85,10 @@
     min-width: 100px;
 }
 
+.product-item .label{
+    min-width: 100px;
+}
+
 .product-item input{
     width: calc(100% - 100px);
 }
@@ -130,6 +134,10 @@
 }
 
 .detail label{
+    width: 50%;
+}
+
+.detail .label{
     width: 50%;
 }
 

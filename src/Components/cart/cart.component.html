@@ -4,7 +4,7 @@
     </div>
     <div class="content">
         <div class="products">
-            <div class="card" *ngFor="let item of cartProductsFinal">
+            <div class="card" *ngFor="let item of cartProductsFinal; let i = index">
                 <div class="product-image">
                     @if(item.product.productImage!=null){
                         <img [src]="item.product.imageSrc">
@@ -20,28 +20,28 @@
                         </div>
                         <div class="product-details-item">
                             <div class="product-item non-editable">
-                                <label for="material">Material:</label>
+                                <div class="label">Material:</div>
                                 <span>{{item.product.materialName}}</span>
                             </div>
                             <div class="product-item non-editable">
-                                <label for="category">Category:</label>
+                                <div class="label">Category:</div>
                                 <span>{{item.product.categoryName}}</span>
                             </div>
                             <div class="product-item non-editable">
-                                <label for="purity">Purity:</label>
+                                <div class="label">Purity:</div>
                                 <span>{{item.purity}}%</span>
                             </div>
                             <div class="product-item editable">
-                                <label for="quantity">Quantity:</label>
-                                <input id="quantity" type="number" [value]="item.updatedQuantity" [max]="item.product.quantity" (change)="onQuantityChange($event, item)" required>
+                                <label [for]="'quantity-'+i">Quantity:</label>
+                                <input [id]="'quantity-'+i" type="number" [value]="item.updatedQuantity" [max]="item.product.quantity" (change)="onQuantityChange($event, item)" required>
                             </div>
                             <div class="product-item editable">
-                                <label for="weight">Weight:</label>
-                                <input id="weight" type="number" [value]="item.updatedWeight" [max]="item.product.weight" (change)="onWeightChange($event, item)" required>
+                                <label [for]="'weight-'+i">Weight:</label>
+                                <input [id]="'weight-'+i" type="number" [value]="item.updatedWeight" [max]="item.product.weight" (change)="onWeightChange($event, item)" required>
                             </div>
                             <div class="product-item non-editable">
-                                <label for="amount">Amount:</label>
-                                <span>Rs. {{item.amount}}</span>
+                                <div class="label">Amount:</div>
+                                <span>Rs. {{item.amount | formatCurrency}}</span>
                             </div>
                         </div>
                     </div>
@@ -54,15 +54,15 @@
         <div class="total-card">
             <div class="summary">
                 <div class="detail">
-                    <label for="total-product">Total Products:</label>
+                    <div class="label">Total Products:</div>
                     <span>{{totalItemCount}}</span>
                 </div>
                 <div class="detail">
-                    <label for="amount">Total Amount: Rs. </label>
-                    <span>{{totalPrice}}</span>
+                    <div class="label">Total Amount:</div>
+                    <span>Rs. {{totalPrice | formatCurrency}}</span>
                 </div>
                 <div class="buttons">
-                    <button mat-flat-button color="primary">Place Order</button>
+                    <button mat-flat-button color="primary" (click)="placeOrder()">Place Order</button>
                 </div>
             </div>
         </div>

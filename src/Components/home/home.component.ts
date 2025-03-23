@@ -39,10 +39,10 @@ export class HomeComponent implements OnInit, OnDestroy{
   constructor(private appService: AppService){}
 
   ngOnInit(): void {
-      this.appService.getCategoriesFromDB();
-      this.appService.getProductsFromDB();
-      this.appService.getMaterialsFromDB();
-      this.appService.getLatestMaterialsPriceFromDB();
+      // this.appService.getCategoriesFromDB();
+      // this.appService.getProductsFromDB();
+      // this.appService.getMaterialsFromDB();
+      // this.appService.getLatestMaterialsPriceFromDB();
 
       this.categoriesSubscription = this.appService.onGetCategories().subscribe({
         next: value => {

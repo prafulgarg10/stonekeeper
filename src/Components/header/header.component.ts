@@ -58,6 +58,7 @@ export class HeaderComponent implements OnInit{
   onLogoutClick(){
     this.appService.loggedInUser.next(new Login());
     this.appService.currentHeader.next(this.appService.defaultHeader);
+    this.appService.productsInCart.next([]);
     this.router.navigateByUrl("/login");
   }
 }

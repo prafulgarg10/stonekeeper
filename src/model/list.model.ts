@@ -31,3 +31,10 @@ export class Register{
     Password: string | undefined;
     Email: string | undefined;
 }
+
+export class Order{
+    productId: number = 0;
+    weight: number = 0;
+    quantity: number = 0;
+    price: number = 0;
+}

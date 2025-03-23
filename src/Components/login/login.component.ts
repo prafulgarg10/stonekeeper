@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule],
+  imports: [ReactiveFormsModule, MatButtonModule,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -32,7 +32,7 @@ export class LoginComponent {
     this.getTokenForLoggedInUser(postData);
   }
 
-  getTokenForLoggedInUser(usr: Login) {
+  async getTokenForLoggedInUser(usr: Login) {
     this.http.post(this.apiUrl + '/login', usr).subscribe({
       next: data => {
         this.appService.loggedInUser.next(usr);
@@ -42,6 +42,10 @@ export class LoginComponent {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${res.token}`
           }));
+          this.appService.getCategoriesFromDB();
+          this.appService.getProductsFromDB();
+          this.appService.getMaterialsFromDB();
+          this.appService.getLatestMaterialsPriceFromDB();
           this.router.navigateByUrl("/");
         }
       },

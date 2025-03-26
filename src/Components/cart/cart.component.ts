@@ -135,7 +135,7 @@ export class CartComponent implements OnInit{
       arr.push(pOrder);
     });
     let postData:any = arr.length==0 ? {} : arr;
-    this.http.post(this.apiUrl + '/place-order', postData).subscribe({
+    this.http.post(this.apiUrl + '/place-order', postData, {headers: this.appService.currentHeader.value}).subscribe({
       next: (data:any) => {
           if(data && data?.orderId>0){
             this.openDialog('Order created Successfully.', 'Confirmation!', true);

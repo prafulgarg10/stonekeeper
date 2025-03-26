@@ -52,8 +52,13 @@ export class LoginComponent {
       error: err => {
         this.appService.loggedInUser.next(new Login());
         this.appService.currentHeader.next(this.appService.defaultHeader);
-        this.openDialog("Problem while logging in. Please check your credentials and try again.", "Failure!");
-        console.log("Error", err);
+        let res:any = err.error;
+        if(res?.message){
+          this.openDialog(res.message, 'Failure!');
+        }
+        else{
+          this.openDialog("Problem while logging in. Please try again later.", "Failure!");
+        }
       }
     })
   }

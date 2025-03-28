@@ -46,6 +46,7 @@ export class LoginComponent {
           this.appService.getProductsFromDB();
           this.appService.getMaterialsFromDB();
           this.appService.getLatestMaterialsPriceFromDB();
+          this.appService.getOrdersSummaryFromDB();
           this.router.navigateByUrl("/");
         }
       },

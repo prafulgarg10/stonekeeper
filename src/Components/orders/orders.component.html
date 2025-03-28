@@ -1,1 +1,72 @@
-<p>orders works!</p>
+<div class="main">
+    <div class="main-content">
+        <div class="title">
+            Orders
+        </div>
+        <div class="orders-summary" *ngFor="let order of orders">
+            <div class="order-card">
+                <div class="order-details">
+                    <div class="left-item">
+                        <span class="item">
+                            Order Id: <span class="item-value">#{{order.orderId}}</span>
+                        </span>
+                        <span class="item">
+                            Created On: <span class="item-value">{{order.createdOn}}</span> 
+                        </span>
+                        <span class="item">
+                            Created By: <span class="item-value">{{order.createBy}}</span>  
+                        </span>
+                    </div>
+                    <div class="right-item">
+                        <span class="item">
+                            Total amount: <span class="item-value">Rs. {{order.totalAmount}}</span> 
+                        </span>
+                        <span class="item">
+                            Download Invoice: <mat-icon fontIcon="download" (click)="downloadInvoice(order)" matTooltip="Download Invoice"></mat-icon>   
+                        </span>
+                    </div>
+                </div>
+                <div class="product-card" *ngFor="let product of order.products">
+                    <div class="card-content">
+                        <div class="col">
+                            <div class="product-image">
+                                @if(product.productImage!=null){
+                                    <img [src]="product.imageSrc">
+                                }
+                                @else{
+                                    <img src="../../assets/Ring.png">
+                                } 
+                            </div>
+                        </div>
+                        <div class="col">
+                            <span class="product-item">
+                                Name: <span class="item-value">{{product.name}}</span> 
+                            </span>
+                            <span class="product-item">
+                                Weight: <span class="item-value">{{product.weight}}gm</span> 
+                            </span>
+                            <span class="product-item">
+                                Quantity: <span class="item-value">{{product.quantity}}</span> 
+                            </span>
+                            <span class="product-item">
+                                Category: <span class="item-value">{{product.category}}</span> 
+                            </span>
+                        </div>
+                        <div class="col col-end">
+                            <span class="product-item">
+                                Material Price(Per 10gm): <span class="item-value">Rs. {{product.materialPrice}}</span> 
+                            </span>
+                        </div>
+                        <div class="col col-end">
+                            <span class="product-item">
+                                Amount: <span class="item-value">Rs. {{product.productTotal}}</span> 
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>

@@ -162,8 +162,9 @@ export class CartComponent implements OnInit{
         }
       }).afterClosed().subscribe(() => {
         if(success){
-          this.appService.getProductsFromDB();
+        this.appService.getProductsFromDB();
         this.appService.productsInCart.next([]);
+        this.appService.getOrdersSummaryFromDB();
         this.router.navigateByUrl("/");
         }
         

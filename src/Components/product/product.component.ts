@@ -46,7 +46,7 @@ export class ProductComponent {
 
     addProductToCart(product: Product) {
       product.isAddedToCart = !product.isAddedToCart;
-      if(product.isAddedToCart){
+      if(product.isAddedToCart){ 
         let updatedProduct = new ProductInCart();
         updatedProduct.product = product;
         var pdInCart = this.appService.productsInCart.value;

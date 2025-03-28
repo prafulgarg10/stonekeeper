@@ -1,0 +1,120 @@
+.main{
+    width: 100%;
+    height: calc(100vh - 81px);
+}
+
+.main-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 121px);
+    overflow-y: scroll;
+    padding: 20px 0px;
+    gap: 20px;
+}
+
+.title{
+    font-size: 22px;
+}
+
+.orders-summary{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.order-card{
+    width: 100%;
+    /* box-shadow: 0px 0px 10px lightgray; */
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: #f3eded;
+    box-shadow: 0px 0px 5px #756666;
+}
+
+.order-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-item, .right-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.item{
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-value{
+    font-style: italic;
+    font-size: 17px;
+    font-weight: normal;
+    color: #547754;
+}
+
+.item .mat-icon{
+    font-size: 18px;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.product-card{
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.card-content{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    max-width: 95%;
+    overflow-x: scroll;
+}
+
+.col{
+    min-width: 200px;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-image{
+    display: flex;
+    align-items: center;
+}
+
+.product-image img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    border: 1px solid lightgray;
+}
+
+.col-end{
+    align-items: flex-end;
+}

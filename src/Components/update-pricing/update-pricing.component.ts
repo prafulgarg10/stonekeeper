@@ -34,7 +34,7 @@ export class UpdatePricingComponent implements OnChanges{
     let lPrice = this.updatePricing.value as Price;
     lPrice.lastUpdated = new Date();
     let postData = Object.assign({}, lPrice as Price);
-    this.http.post(this.apiUrl + '/add-pricing', postData).subscribe({
+    this.http.post(this.apiUrl + '/add-pricing', postData, {headers: this.appService.currentHeader.value}).subscribe({
         next: data => {
             if(data){
               console.log("result", data);

@@ -41,7 +41,7 @@ export class AddCategoryComponent {
   }
 
   addCategoryToDB(category: Category){
-    this.http.post(this.apiUrl + '/add-category', category).subscribe({
+    this.http.post(this.apiUrl + '/add-category', category, {headers: this.appService.currentHeader.value}).subscribe({
         next: data => {
             if(data){
               console.log("result", data);

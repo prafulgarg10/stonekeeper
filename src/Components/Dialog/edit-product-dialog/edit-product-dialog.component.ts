@@ -91,7 +91,7 @@ export class EditProductDialogComponent implements OnInit{
   
     updateProductToDB(product: Product){
       let postData = Object.assign({}, product as Product);
-      this.http.post(this.apiUrl + '/update-product', postData).subscribe({
+      this.http.post(this.apiUrl + '/update-product', postData, {headers: this.appService.currentHeader.value}).subscribe({
           next: data => {
               if(data){
                 console.log("result", data);

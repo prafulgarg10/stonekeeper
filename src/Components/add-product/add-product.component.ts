@@ -74,7 +74,7 @@ export class AddProductComponent implements OnChanges{
   addProductToDB(product: Product){
     let postData = Object.assign({}, product as Product);
     //this.http.post(this.apiUrl + '/add-product', product, {headers: new HttpHeaders().set('Content-Type', 'multipart/form-data')}).subscribe({
-    this.http.post(this.apiUrl + '/add-product', postData).subscribe({
+    this.http.post(this.apiUrl + '/add-product', postData, {headers: this.appService.currentHeader.value}).subscribe({
         next: data => {
             if(data){
               console.log("result", data);

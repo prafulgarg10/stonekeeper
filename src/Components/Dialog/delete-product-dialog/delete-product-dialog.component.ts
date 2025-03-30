@@ -35,7 +35,7 @@ export class DeleteProductDialogComponent implements OnInit {
 
   deleteProduct(){
     let postData = Object.assign({}, this.product as Product);
-      this.http.post(this.apiUrl + '/delete-product', postData).subscribe({
+      this.http.post(this.apiUrl + '/delete-product', postData, {headers: this.appService.currentHeader.value}).subscribe({
           next: data => {
               if(data){
                 console.log("result", data);

@@ -17,6 +17,14 @@
                             <button mat-flat-button color="warn" [disabled]="!isLoggedIn" (click)="onLogoutClick()">Logout</button>
                         </div>
                       </mat-menu>
+                </div>             
+                <div class="right-item circle" matTooltip="Orders">
+                    <a routerLink="/orders" class="link" style="height: 24px">
+                        <mat-icon fontIcon="archive"></mat-icon>  
+                    </a>
+                </div>
+                <div class="right-item circle" matTooltip="Refresh" (click)="onRefreshClick()">
+                    <mat-icon fontIcon="refresh"></mat-icon> 
                 </div>
                 <div class="right-item circle" matTooltip="Shopping Cart">
                     <a routerLink="/cart" class="link" style="height: 24px">
@@ -27,12 +35,7 @@
                     <div class="count">
                         <span class="cart-count">{{productInCartCount}}</span> 
                     </div>
-                </div>               
-                <div class="right-item circle" matTooltip="Orders">
-                    <a routerLink="/orders" class="link" style="height: 24px">
-                        <mat-icon fontIcon="archive"></mat-icon>  
-                    </a>
-                </div>
+                </div>  
             </div>
         </div>
     </div>

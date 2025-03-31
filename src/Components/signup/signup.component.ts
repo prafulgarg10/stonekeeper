@@ -19,7 +19,7 @@ export class SignupComponent {
   signup = new FormGroup({
     Username: new FormControl('', [Validators.required, Validators.minLength(3)]),
     Password: new FormControl(),
-    Email: new FormControl(undefined, [Validators.email, Validators.required, Validators.minLength(3)]),
+    Email: new FormControl(undefined, [Validators.email, Validators.required, Validators.minLength(3)])
   });
   private apiUrl = environment.apiUrl;
 
@@ -29,6 +29,7 @@ export class SignupComponent {
 
   onSignup() {
     let postData = Object.assign({}, this.signup.value as Register);
+    postData.SecretPassword = "";
     this.registerUser(postData);
   }
 
@@ -55,9 +56,6 @@ export class SignupComponent {
     }).afterClosed().subscribe(() => {
       if(isSuccess){
         this.router.navigateByUrl("/login");
-      }
-      else{
-        this.signup.reset();
       }
     });
   }

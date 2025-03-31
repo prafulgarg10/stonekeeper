@@ -30,6 +30,7 @@ export class Register{
     Username: string | undefined;
     Password: string | undefined;
     Email: string | undefined;
+    SecretPassword: string = '';
 }
 
 export class Order{

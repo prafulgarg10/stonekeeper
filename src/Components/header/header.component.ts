@@ -61,4 +61,14 @@ export class HeaderComponent implements OnInit{
     this.appService.productsInCart.next([]);
     this.router.navigateByUrl("/login");
   }
+
+  onRefreshClick(){
+    if(this.isLoggedIn){
+          this.appService.getCategoriesFromDB();
+          this.appService.getProductsFromDB();
+          this.appService.getMaterialsFromDB();
+          this.appService.getLatestMaterialsPriceFromDB();
+          this.appService.getOrdersSummaryFromDB();
+    }
+  }
 }

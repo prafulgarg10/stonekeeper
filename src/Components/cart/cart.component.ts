@@ -30,6 +30,7 @@ export class CartComponent implements OnInit{
   latestPriceSubscription: Subscription = new Subscription();
   totalItemCount: number = 0;
   totalPrice: number = 0;
+  isDisabled: boolean = true;
   private apiUrl = environment.apiUrl;
 
   constructor(private appService: AppService, private http: HttpClient, private dialog: MatDialog, private router: Router){
@@ -66,8 +67,8 @@ export class CartComponent implements OnInit{
   }
 
   onQuantityChange(e:any, item: ProductInCart){
-    let val = e?.target?.value;
-    if(val){
+    let val:number = parseFloat(e?.target?.value);
+    if(val>=0){
       if(val<item.product.quantity){
         item.updatedQuantity = val;
       } 
@@ -77,14 +78,17 @@ export class CartComponent implements OnInit{
         e.target.value = qty;
       }
     }
+    else{
+      item.updatedQuantity = 0;
+      e.target.value = 0;
+    }
   }
 
   onWeightChange(e:any, item: ProductInCart){
-    let val = e?.target?.value;
-    if(val){
+    let val:number = parseFloat(e?.target?.value);
+    if(val>=0){
       if(val<item.product.weight){
         item.updatedWeight = val;
-
       } 
       else{
         let wght = item.product.weight;
@@ -92,8 +96,13 @@ export class CartComponent implements OnInit{
         e.target.value = wght;
       }
       item.amount = this.getPrice(item.purity, item.product.material, item.updatedWeight);
-      this.updateTotalPriceAndTotalCount();
     }
+    else{
+      item.updatedWeight = 0;
+      e.target.value = 0;
+      item.amount = 0;
+    }
+    this.updateTotalPriceAndTotalCount();
   }
 
   getPrice(purity:number, material:number, wgt:number){
@@ -115,6 +124,12 @@ export class CartComponent implements OnInit{
     let price = 0;
     this.cartProductsFinal.forEach(p => price += p.amount);
     this.totalPrice = price;
+    if(this.totalPrice>0){
+      this.isDisabled=false;
+    }
+    else{
+      this.isDisabled=true;
+    }
   }
 
   getPurity(pCid: number):number{

@@ -33,11 +33,11 @@
                             </div>
                             <div class="product-item editable">
                                 <label [for]="'quantity-'+i">Quantity:</label>
-                                <input [id]="'quantity-'+i" type="number" [value]="item.updatedQuantity" [max]="item.product.quantity" (change)="onQuantityChange($event, item)" required>
+                                <input [id]="'quantity-'+i" type="number" [value]="item.updatedQuantity" [max]="item.product.quantity" (input)="onQuantityChange($event, item)" required>
                             </div>
                             <div class="product-item editable">
                                 <label [for]="'weight-'+i">Weight:</label>
-                                <input [id]="'weight-'+i" type="number" [value]="item.updatedWeight" [max]="item.product.weight" (change)="onWeightChange($event, item)" required>
+                                <input [id]="'weight-'+i" type="number" [value]="item.updatedWeight" [max]="item.product.weight" (input)="onWeightChange($event, item)" required>
                             </div>
                             <div class="product-item non-editable">
                                 <div class="label">Amount:</div>
@@ -62,7 +62,7 @@
                     <span>Rs. {{totalPrice | formatCurrency}}</span>
                 </div>
                 <div class="buttons">
-                    <button mat-flat-button color="primary" (click)="placeOrder()">Place Order</button>
+                    <button mat-flat-button color="primary" (click)="placeOrder()" [disabled]="isDisabled">Place Order</button>
                 </div>
             </div>
         </div>

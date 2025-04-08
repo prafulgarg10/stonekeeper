@@ -26,9 +26,9 @@ export class AddProductComponent implements OnChanges{
   file: FileDTO | undefined;
   addProduct = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    weight: new FormControl(0),
+    weight: new FormControl(0.01, [Validators.required, Validators.min(0.01)]),
     category: new FormControl(0),
-    quantity: new FormControl(0),
+    quantity: new FormControl(1, [Validators.required, Validators.min(1)]),
     material: new FormControl(0)
   });
 

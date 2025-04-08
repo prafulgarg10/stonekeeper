@@ -20,7 +20,7 @@ export class AddCategoryComponent {
   category: Category = new Category();
   addCategory = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)] ),
-    purity: new FormControl(100),
+    purity: new FormControl(100, [Validators.required, Validators.min(0)]),
     description: new FormControl('')
   });
 

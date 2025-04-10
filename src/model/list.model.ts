@@ -57,6 +57,7 @@ export class ProductPerOrder{
     purity: number = 0;
     quantity: number = 0;
     materialPrice: number = 0;
+    materialId: number = 0;
     productTotal: number = 0;
     imageSrc: string = '';
 }

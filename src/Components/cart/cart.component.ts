@@ -54,10 +54,12 @@ export class CartComponent implements OnInit{
       next: value => {
         this.cartProductsFinal = value;
         this.cartProductsFinal = this.cartProductsFinal.map(p => {
-          p.purity = this.getPurity(p.product.category);
+          let purity:number[] = this.getPurity(p.product.category);
+          p.purity = purity[0];
+          p.sellingPurity = purity[1];
           p.updatedQuantity = p.updatedQuantity==0 ? p.product.quantity : p.updatedQuantity;
           p.updatedWeight = p.updatedWeight==0 ? p.product.weight : p.updatedWeight;
-          p.amount = this.getPrice(p.purity, p.product.material, p.updatedWeight);
+          p.amount = this.getPrice(p.sellingPurity, p.product.material, p.updatedWeight);
           return p;
         });
         
@@ -95,7 +97,7 @@ export class CartComponent implements OnInit{
         item.updatedWeight = wght;
         e.target.value = wght;
       }
-      item.amount = this.getPrice(item.purity, item.product.material, item.updatedWeight);
+      item.amount = this.getPrice(item.sellingPurity, item.product.material, item.updatedWeight);
     }
     else{
       item.updatedWeight = 0;
@@ -132,12 +134,12 @@ export class CartComponent implements OnInit{
     }
   }
 
-  getPurity(pCid: number):number{
+  getPurity(pCid: number):number[]{
     let cat = this.categories.filter(c => c.id==pCid);
     if(cat && cat.length>0){
-      return cat[0].purity;
+      return [cat[0].purity, cat[0].sellingpurity];
     }
-    return 100;
+    return [100, 100];
   }
 
   placeOrder(){

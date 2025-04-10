@@ -34,7 +34,12 @@
                                     <img [src]="product.imageSrc">
                                 }
                                 @else{
-                                    <img src="../../assets/Ring.png">
+                                    @if(product.materialId==1){
+                                        <img src="../../assets/Gold default.png">
+                                    }
+                                    @else{
+                                        <img src="../../assets/Silver default.png">
+                                    }
                                 } 
                             </div>
                         </div>

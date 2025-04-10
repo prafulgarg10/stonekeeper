@@ -22,7 +22,7 @@
                     <div class="item">
                         <label for="category">Category</label>
                         <select id="category" formControlName="category">
-                            <option *ngFor="let category of categories;" [value]="category.id">{{category.name}}, Purity: {{category.purity}}%</option>
+                            <option *ngFor="let category of categories;" [value]="category.id">{{category.name}}, Purity(O): {{category.purity}}%, Purity(S): {{category.sellingpurity}}%</option>
                         </select>
                     </div>
                     <div class="item">

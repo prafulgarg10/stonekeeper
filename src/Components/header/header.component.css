@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #e2d5b4;
 }
 
 .header-content{
@@ -33,7 +34,7 @@
     min-width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid lightgray;
+    border: 2px solid #b3a4a4;
 }
 
 .circle img{

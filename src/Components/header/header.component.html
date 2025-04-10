@@ -3,8 +3,8 @@
         <span class="header-items title" matTooltip="Home"><a class="link" routerLink="/">Manoj Kumar Jewellars</a></span>
         <div class="header-items">
             <div class="right">
-                <div class="right-item circle" [matTooltip]="user.Username">
-                    <img src="../../assets/Profile-Default.png" [matMenuTriggerFor]="menu">
+                <div class="right-item circle" [matTooltip]="user.Username" [matMenuTriggerFor]="menu">
+                    <mat-icon fontIcon="person"></mat-icon> 
                     <mat-menu #menu="matMenu">
                         <div class="user-name">
                             {{user.Username}}

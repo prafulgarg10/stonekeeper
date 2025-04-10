@@ -10,7 +10,12 @@
                         <img [src]="item.product.imageSrc">
                     }
                     @else{
-                        <img src="../../assets/Ring.png">
+                        @if(item.product.materialName=="Gold"){
+                            <img src="../../assets/Gold default.png">
+                        }
+                        @else{
+                            <img src="../../assets/Silver default.png">
+                        }
                     } 
                 </div>
                 <div class="product-details">
@@ -29,7 +34,7 @@
                             </div>
                             <div class="product-item non-editable">
                                 <div class="label">Purity:</div>
-                                <span>{{item.purity}}%</span>
+                                <span>Original: {{item.purity}}%, Selling: {{item.sellingPurity}}% </span>
                             </div>
                             <div class="product-item editable">
                                 <label [for]="'quantity-'+i">Quantity:</label>

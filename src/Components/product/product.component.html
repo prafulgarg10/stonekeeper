@@ -6,7 +6,13 @@
                     <img [src]="product.imageSrc">
                 }
                 @else{
-                    <img src="../../assets/Ring.png">
+                    @if(product.materialName=="Gold"){
+                        <img src="../../assets/Gold default.png">
+                    }
+                    @else{
+                        <img src="../../assets/Silver default.png">
+                    }
+                    
                 } 
             </div>
             <div class="product-title">

@@ -20,12 +20,14 @@ export class ProductInCart{
     updatedWeight: number  = 0;
     updatedQuantity: number = 0;
     purity: number = 100;
+    sellingPurity: number = 100;
 }
 
 export class Category{
     id: number = 0;
     name: string = '';
     purity: number = 100;
+    sellingpurity: number = 100;
     active: boolean = true;
     description: string = '';
 }

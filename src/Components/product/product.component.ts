@@ -9,11 +9,10 @@ import { DeleteProductDialogComponent } from '../Dialog/delete-product-dialog/de
 import { AppService } from '../../service/app.service';
 
 @Component({
-  selector: 'app-product',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, MatTooltipModule],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+    selector: 'app-product',
+    imports: [CommonModule, MatIconModule, MatTooltipModule],
+    templateUrl: './product.component.html',
+    styleUrl: './product.component.css'
 })
 export class ProductComponent {
   @Input() productsList: Product[] = [];

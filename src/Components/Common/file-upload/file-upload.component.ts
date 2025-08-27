@@ -4,11 +4,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MessageDialogComponent } from '../../Dialog/message-dialog/message-dialog.component';
 
 @Component({
-  selector: 'app-file-upload',
-  standalone: true,
-  imports: [MatDialogModule, MessageDialogComponent],
-  templateUrl: './file-upload.component.html',
-  styleUrl: './file-upload.component.css'
+    selector: 'app-file-upload',
+    imports: [MatDialogModule, MessageDialogComponent],
+    templateUrl: './file-upload.component.html',
+    styleUrl: './file-upload.component.css'
 })
 export class FileUploadComponent {
   @Output() fileUploaded: EventEmitter<FileDTO> = new EventEmitter<FileDTO>();

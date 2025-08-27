@@ -4,13 +4,12 @@ import { HeaderComponent } from '../Components/header/header.component';
 import { AppService } from '../service/app.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-             RouterOutlet, HeaderComponent
-            ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [
+        RouterOutlet, HeaderComponent
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
 

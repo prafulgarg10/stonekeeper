@@ -9,11 +9,10 @@ import { environment } from '../../../environments/environment';
 import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
 
 @Component({
-  selector: 'app-delete-product-dialog',
-  standalone: true,
-  imports: [MatIconModule, MatButtonModule],
-  templateUrl: './delete-product-dialog.component.html',
-  styleUrl: './delete-product-dialog.component.css'
+    selector: 'app-delete-product-dialog',
+    imports: [MatIconModule, MatButtonModule],
+    templateUrl: './delete-product-dialog.component.html',
+    styleUrl: './delete-product-dialog.component.css'
 })
 export class DeleteProductDialogComponent implements OnInit {
   public title: string = '';

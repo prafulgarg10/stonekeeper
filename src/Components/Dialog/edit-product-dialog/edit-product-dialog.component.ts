@@ -6,18 +6,17 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { FileUploadComponent } from '../../Common/file-upload/file-upload.component';
 import { environment } from '../../../environments/environment';
 import { FileDTO } from '../../../model/list.model';
 import { AppService } from '../../../service/app.service';
 
 @Component({
-  selector: 'app-edit-product-dialog',
-  standalone: true,
-  imports: [MatIconModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent, HttpClientModule],
-  templateUrl: './edit-product-dialog.component.html',
-  styleUrl: './edit-product-dialog.component.css'
+    selector: 'app-edit-product-dialog',
+    imports: [MatIconModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent],
+    templateUrl: './edit-product-dialog.component.html',
+    styleUrl: './edit-product-dialog.component.css'
 })
 export class EditProductDialogComponent implements OnInit{
   public title: string = '';

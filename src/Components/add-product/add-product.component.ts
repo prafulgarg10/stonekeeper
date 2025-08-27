@@ -5,18 +5,17 @@ import { Category, Material, Product } from '../../model/product.model';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MessageDialogComponent } from '../Dialog/message-dialog/message-dialog.component';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AppService } from '../../service/app.service';
 import { FileUploadComponent } from '../Common/file-upload/file-upload.component';
 import { FileDTO } from '../../model/list.model';
 
 @Component({
-  selector: 'app-add-product',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent, HttpClientModule, FileUploadComponent],
-  templateUrl: './add-product.component.html',
-  styleUrl: './add-product.component.css'
+    selector: 'app-add-product',
+    imports: [ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent, FileUploadComponent],
+    templateUrl: './add-product.component.html',
+    styleUrl: './add-product.component.css'
 })
 export class AddProductComponent implements OnChanges{
   @Input() categories: Category[] = [];

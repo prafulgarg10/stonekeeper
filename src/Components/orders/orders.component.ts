@@ -7,11 +7,10 @@ import { UserOrders } from '../../model/list.model';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-orders',
-  standalone: true,
-  imports: [MatIconModule, MatTooltipModule, CommonModule],
-  templateUrl: './orders.component.html',
-  styleUrl: './orders.component.css'
+    selector: 'app-orders',
+    imports: [MatIconModule, MatTooltipModule, CommonModule],
+    templateUrl: './orders.component.html',
+    styleUrl: './orders.component.css'
 })
 export class OrdersComponent implements OnInit{
   orders: UserOrders[] = [];

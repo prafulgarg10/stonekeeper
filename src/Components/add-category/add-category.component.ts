@@ -5,15 +5,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MessageDialogComponent } from '../Dialog/message-dialog/message-dialog.component';
 import { AppService } from '../../service/app.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-add-category',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, HttpClientModule],
-  templateUrl: './add-category.component.html',
-  styleUrl: './add-category.component.css'
+    selector: 'app-add-category',
+    imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule],
+    templateUrl: './add-category.component.html',
+    styleUrl: './add-category.component.css'
 })
 export class AddCategoryComponent {
   private apiUrl = environment.apiUrl;

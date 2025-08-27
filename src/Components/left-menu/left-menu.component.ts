@@ -3,11 +3,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MenuItems } from '../../model/list.model';
 
 @Component({
-  selector: 'app-left-menu',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './left-menu.component.html',
-  styleUrl: './left-menu.component.css'
+    selector: 'app-left-menu',
+    imports: [CommonModule],
+    templateUrl: './left-menu.component.html',
+    styleUrl: './left-menu.component.css'
 })
 export class LeftMenuComponent {
   @Output() currentActiveMenu: EventEmitter<MenuItems[]> = new EventEmitter();

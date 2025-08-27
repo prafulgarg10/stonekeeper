@@ -5,17 +5,16 @@ import { Material, Price } from '../../model/product.model';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MessageDialogComponent } from '../Dialog/message-dialog/message-dialog.component';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AppService } from '../../service/app.service';
 import { FileUploadComponent } from '../Common/file-upload/file-upload.component';
 
 @Component({
-  selector: 'app-update-pricing',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent, HttpClientModule, FileUploadComponent],
-  templateUrl: './update-pricing.component.html',
-  styleUrl: './update-pricing.component.css'
+    selector: 'app-update-pricing',
+    imports: [ReactiveFormsModule, CommonModule, MatButtonModule, MatDialogModule, MessageDialogComponent, FileUploadComponent],
+    templateUrl: './update-pricing.component.html',
+    styleUrl: './update-pricing.component.css'
 })
 export class UpdatePricingComponent implements OnChanges{
   @Input() latestMaterialsPrice: Price[] = [];

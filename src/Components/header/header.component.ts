@@ -9,11 +9,10 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [MatIconModule, RouterLink, RouterOutlet, MatTooltip, MatMenuModule, MatButtonModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+    selector: 'app-header',
+    imports: [MatIconModule, RouterLink, RouterOutlet, MatTooltip, MatMenuModule, MatButtonModule],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
   public user: Login = new Login();

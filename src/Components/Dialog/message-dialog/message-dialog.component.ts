@@ -3,11 +3,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-message-dialog',
-  standalone: true,
-  imports: [MatIconModule],
-  templateUrl: './message-dialog.component.html',
-  styleUrl: './message-dialog.component.css'
+    selector: 'app-message-dialog',
+    imports: [MatIconModule],
+    templateUrl: './message-dialog.component.html',
+    styleUrl: './message-dialog.component.css'
 })
 export class MessageDialogComponent implements OnInit {
   public boxTitle: string = '';

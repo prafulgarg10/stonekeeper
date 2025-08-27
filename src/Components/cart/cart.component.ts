@@ -15,11 +15,10 @@ import { MessageDialogComponent } from '../Dialog/message-dialog/message-dialog.
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, MatTooltipModule, MatButtonModule, FormatCurrencyPipe],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+    selector: 'app-cart',
+    imports: [CommonModule, MatIconModule, MatTooltipModule, MatButtonModule, FormatCurrencyPipe],
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit{
   cartProductsFinal: ProductInCart[] = [];

@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-signup',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule],
-  templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+    selector: 'app-signup',
+    imports: [ReactiveFormsModule, MatButtonModule],
+    templateUrl: './signup.component.html',
+    styleUrl: './signup.component.css'
 })
 export class SignupComponent {
   signup = new FormGroup({

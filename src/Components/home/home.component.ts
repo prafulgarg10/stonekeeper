@@ -14,14 +14,13 @@ import { CategoriesComponent } from '../categories/categories.component';
 import { UpdatePricingComponent } from '../update-pricing/update-pricing.component';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-             RouterOutlet,HeaderComponent, LeftMenuComponent, AddProductComponent, AddCategoryComponent, CommonModule, 
-             ProductComponent, CategoriesComponent, UpdatePricingComponent
-            ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    imports: [
+        RouterOutlet, HeaderComponent, LeftMenuComponent, AddProductComponent, AddCategoryComponent, CommonModule,
+        ProductComponent, CategoriesComponent, UpdatePricingComponent
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit, OnDestroy{
   title = 'StoneKeeper';

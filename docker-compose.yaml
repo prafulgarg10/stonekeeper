@@ -1,7 +1,0 @@
-services:
-  stonekeeper-ui:
-    build: .
-    ports:
-      - "4200:4200"
-    stdin_open: true
-    tty: true
